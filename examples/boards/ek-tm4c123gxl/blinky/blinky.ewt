@@ -1215,6 +1215,12 @@
             <name>$PROJ_DIR$\lcd.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\mathop.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\mathop.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\parser.c</name>
         </file>
         <file>

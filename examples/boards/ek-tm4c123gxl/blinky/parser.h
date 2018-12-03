@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 int get_number(void);
-
+void set_number(int value) ;
 void parse(char c);
 
 void clear_parser(void);

@@ -7,7 +7,9 @@ int number_to_char_counter = 0;
 int get_number(void) {
   return number;
 }
-
+void set_number(int value) {
+   number= value ;
+}
 void parse(char c) {
   int digit = c - '0';
   number = (number * 10) + digit;
