@@ -5,7 +5,7 @@
         <LMIFTDIfoundProbes />
     </LMIFTDIDriver>
     <DebugChecksum>
-        <Checksum>3538478945</Checksum>
+        <Checksum>2919657154</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -50,7 +50,8 @@
         <Count>0</Count>
     </Breakpoints>
     <Aliases>
-        <Count>0</Count>
+        <A0>_ "C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\blinky\lcd.c" "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\lcd.c"</A0>
+        <Count>1</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
 </settings>

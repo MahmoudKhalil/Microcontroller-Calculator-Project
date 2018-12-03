@@ -75,3 +75,9 @@ void lcd_data(unsigned char data) {
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7, 0);
   delay_ms(40);
 }
+
+void lcd_char_data(unsigned char *data, int length) {
+  for(int i = length - 1; i >= 0; i--) {
+    lcd_data(data[i]);
+  }
+}
