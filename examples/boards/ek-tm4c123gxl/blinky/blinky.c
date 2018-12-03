@@ -3,6 +3,7 @@
 #include "parser.h"
 #include "mathop.h"
 void clear_screen(void);
+void  result_handler(void);
 bool result_on_screen= false;
 int main()
 {
@@ -14,23 +15,28 @@ int main()
       char key = keypad_get_key();
       if (key != 0) {
       if(key == '+' || key == '-' || key == '*'|| key == '/') {
+        if (get_current_operand() == 1){
+        result_handler();
+        }
         set_operation(key);
         set_current_operand(get_number());
      //   clear_parser();
         clear_screen();
       }
       else if(key == '=') {
-        set_current_operand(get_number());
+        result_handler();
+        /*set_current_operand(get_number());
        // clear_parser();
         clear_screen();
         uint32_t result = calculate_result();
         lcd_char_data(number_to_char(result),  get_number_char());
         result_on_screen = true;
-        set_number(result); // in case they make another operation to result 
+        set_number(result); // in case they make another operation to result */
         
       }
       else if(key == 'C') {
           clear_screen();
+          reset_current_operand();
      }
       else  {
         if(result_on_screen) {  //Check if they insert a new number while result is being displayed
@@ -62,6 +68,15 @@ int main()
       delay_ms(30);
   }
   //return 0;
+}
+void result_handler(){
+        set_current_operand(get_number());
+       // clear_parser();
+        clear_screen();
+        uint32_t result = calculate_result();
+        lcd_char_data(number_to_char(result),  get_number_char());
+        result_on_screen = true;
+        set_number(result); // in case they make another operation to result 
 }
 
 void clear_screen(void) {

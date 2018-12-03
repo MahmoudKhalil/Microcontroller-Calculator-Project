@@ -9,8 +9,15 @@ void set_current_operand(uint32_t value){
 }
 void reset_current_operand( void){
   current_operand= 0;
-  
+  operands [0]=0;
+  operands [1]=0;
+
 }
+uint8_t get_current_operand(){
+  
+ return current_operand ;
+}
+
 void set_operation(char value){
   operation = value;
 }
