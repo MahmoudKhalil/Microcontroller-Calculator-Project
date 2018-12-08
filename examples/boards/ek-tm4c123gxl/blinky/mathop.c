@@ -1,9 +1,9 @@
 #include "mathop.h"
-uint32_t operands [2];
-uint8_t current_operand= 0;
+int operands [2];
+int current_operand= 0;
 char operation;
 
-void set_current_operand(uint32_t value){
+void set_current_operand(int value){
   operands[current_operand] = value;
   current_operand = (current_operand +1)% 2 ;
 }
@@ -21,7 +21,7 @@ uint8_t get_current_operand(){
 void set_operation(char value){
   operation = value;
 }
-uint32_t calculate_result(void){
+int calculate_result(void){
   
   switch (operation){
   case '+':

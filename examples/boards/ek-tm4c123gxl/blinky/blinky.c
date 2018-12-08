@@ -73,8 +73,10 @@ void result_handler(){
         set_current_operand(get_number());
        // clear_parser();
         clear_screen();
-        uint32_t result = calculate_result();
-        lcd_char_data(number_to_char(result),  get_number_char());
+        int result = calculate_result();
+        unsigned char* result_char = number_to_char(result);
+        uint32_t length = get_number_char();
+        lcd_char_data(result_char,  length);
         result_on_screen = true;
         set_number(result); // in case they make another operation to result 
 }

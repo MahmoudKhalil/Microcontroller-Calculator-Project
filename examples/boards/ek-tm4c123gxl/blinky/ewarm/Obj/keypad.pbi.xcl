@@ -1,17 +1,17 @@
-"C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\blinky\keypad.c"
+"C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\keypad.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\blinky
+C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky
 -I
-C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\blinky\..\..\..\..
+C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc\c
 -I
-C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178
+C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -303,9 +303,6 @@ C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.17
 -D__EDG_CPP11_IL_EXTENSIONS_SUPPORTED=1
 -D__EDG_FLOAT80_ENABLING_POSSIBLE=0
 -D__EDG_FLOAT128_ENABLING_POSSIBLE=0
--Dewarm=1
--DPART_TM4C123GH6PM=1
--DTARGET_IS_TM4C123_RB1=1
 -D_DLIB_CONFIG_FILE_HEADER_NAME="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.1\\arm\\inc\\c\\DLib_Config_Normal.h"
 -D_DLIB_CONFIG_FILE_STRING="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.1\\arm\\inc\\c\\DLib_Config_Normal.h"
 -D__VERSION__="IAR ANSI C/C++ Compiler V8.30.2.160/W32 for ARM"

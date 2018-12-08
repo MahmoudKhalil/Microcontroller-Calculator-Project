@@ -1,40 +1,30 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.1.169/W32 for ARM                  04/Dec/2018  00:08:41
+# IAR ELF Linker V8.30.2.160/W32 for ARM                  08/Dec/2018  15:27:17
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
-#        D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Exe\blinky.out
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Exe\blinky.out
 #    Map file     =  
-#        D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\List\blinky.map
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\List\blinky.map
 #    Command line =  
-#        -f C:\Users\eslam\AppData\Local\Temp\EWE199.tmp ("D:\kolya\year
-#        4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\blinky.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\delay.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\driverlib\ewarm\Exe\driverlib.a"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\keypad.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\lcd.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\mathop.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\parser.o"
-#        "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\startup_ewarm.o"
+#        -f C:\Users\Mahmoud\AppData\Local\Temp\EW1EB4.tmp
+#        (C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\blinky.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\delay.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\driverlib\ewarm\Exe\driverlib.a
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\keypad.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\lcd.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\mathop.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\parser.o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj\startup_ewarm.o
 #        --redirect _Printf=_PrintfTiny --redirect _Scanf=_ScanfSmallNoMb
-#        --no_out_extension -o "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Exe\blinky.out"
-#        --map "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\List\blinky.map"
-#        --config "D:\kolya\year 4\semester
-#        7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\blinky.icf"
-#        --semihosting --entry __iar_program_start --vfe --text_out locale)
+#        --no_out_extension -o
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Exe\blinky.out
+#        --map
+#        C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\List\blinky.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.1\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
 #
 ###############################################################################
 
@@ -60,16 +50,13 @@ was not specified.
 *** PLACEMENT SUMMARY
 ***
 
-"A0":  place at start of [from 0x0 to 0x3'ffff] { ro section .intvec };
+"A0":  place at 0x0 { ro section .intvec };
 "P1":  place in [from 0x0 to 0x3'ffff] { ro };
-define block HEAP with size = 0M, alignment = 8 { };
-"P2":  place in [from 0x2000'0000 to 0x2000'7fff] { rw, block HEAP };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
 do not initialize { section .noinit };
-
-No sections matched the following patterns:
-
-  section VTABLE  in "A1"
-
 
   Section          Kind         Address   Size  Object
   -------          ----         -------   ----  ------
@@ -77,7 +64,7 @@ No sections matched the following patterns:
   .intvec          const            0x0  0x26c  startup_ewarm.o [1]
                                 - 0x26c  0x26c
 
-"P1":                                    0x830
+"P1":                                    0x870
   .text            ro code        0x26c  0x18c  keypad.o [1]
   .text            ro code        0x3f8   0x48  sysctl.o [3]
   .text            ro code        0x440  0x176  gpio.o [3]
@@ -85,43 +72,43 @@ No sections matched the following patterns:
   .text            ro code        0x5f0   0x56  ABImemcpy_unaligned.o [5]
   .text            ro code        0x646   0x38  delay.o [1]
   .text            ro code        0x680  0x14c  lcd.o [1]
-  .text            ro code        0x7cc   0xf0  blinky.o [1]
-  .text            ro code        0x8bc   0x8c  mathop.o [1]
-  .text            ro code        0x948   0x74  parser.o [1]
-  .text            ro code        0x9bc   0x28  data_init.o [5]
-  .text            ro code        0x9e4   0x22  fpinit_M.o [4]
-  .iar.init_table  const          0xa08   0x10  - Linker created -
-  .text            ro code        0xa18   0x1e  startup_ewarm.o [1]
-  .text            ro code        0xa36    0xc  cstartup_M.o [5]
-  .text            ro code        0xa44   0x1e  cmain.o [5]
-  .text            ro code        0xa62    0x4  low_level_init.o [2]
-  .text            ro code        0xa66    0x4  exit.o [2]
-  .text            ro code        0xa6c    0xa  cexit.o [5]
-  .text            ro code        0xa78   0x14  exit.o [6]
-  .rodata          const          0xa8c   0x10  keypad.o [1]
-  .rodata          const          0xa9c    0x0  zero_init3.o [5]
-                                - 0xa9c  0x830
+  .text            ro code        0x7cc   0xf4  blinky.o [1]
+  .text            ro code        0x8c0   0x90  mathop.o [1]
+  .text            ro code        0x950   0xac  parser.o [1]
+  .text            ro code        0x9fc   0x28  data_init.o [5]
+  .text            ro code        0xa24   0x22  fpinit_M.o [4]
+  .iar.init_table  const          0xa48   0x10  - Linker created -
+  .text            ro code        0xa58   0x1e  startup_ewarm.o [1]
+  .text            ro code        0xa76    0xc  cstartup_M.o [5]
+  .text            ro code        0xa84   0x1e  cmain.o [5]
+  .text            ro code        0xaa2    0x4  low_level_init.o [2]
+  .text            ro code        0xaa6    0x4  exit.o [2]
+  .text            ro code        0xaac    0xa  cexit.o [5]
+  .text            ro code        0xab8   0x14  exit.o [6]
+  .rodata          const          0xacc   0x10  keypad.o [1]
+  .rodata          const          0xadc    0x0  zero_init3.o [5]
+                                - 0xadc  0x870
 
-"P2", part 1 of 2:                        0x24
+"P2", part 1 of 2:                        0x28
   .bss             zero     0x2000'0000   0x10  parser.o [1]
   .bss             zero     0x2000'0010    0x8  mathop.o [1]
-  .bss             zero     0x2000'0018    0x4  parser.o [1]
+  .bss             zero     0x2000'0018    0x4  mathop.o [1]
   .bss             zero     0x2000'001c    0x4  parser.o [1]
-  .bss             zero     0x2000'0020    0x1  blinky.o [1]
-  .bss             zero     0x2000'0021    0x1  mathop.o [1]
-  .bss             zero     0x2000'0022    0x1  mathop.o [1]
-                          - 0x2000'0023   0x23
+  .bss             zero     0x2000'0020    0x4  parser.o [1]
+  .bss             zero     0x2000'0024    0x1  blinky.o [1]
+  .bss             zero     0x2000'0025    0x1  mathop.o [1]
+                          - 0x2000'0026   0x26
 
 "P2", part 2 of 2:                       0x200
-  .noinit          uninit   0x2000'0024  0x200  startup_ewarm.o [1]
-                          - 0x2000'0224  0x200
+  .noinit          uninit   0x2000'0028  0x200  startup_ewarm.o [1]
+                          - 0x2000'0228  0x200
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0xa9c     0x3'ffff  0x3'f564
-  0x2000'0224  0x2000'7fff    0x7ddc
+        0xadc     0x3'ffff  0x3'f524
+  0x2000'0228  0x2000'7fff    0x7dd8
 
 
 *******************************************************************************
@@ -131,8 +118,8 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x23:
-          0x2000'0000  0x23
+    1 destination range, total size 0x26:
+          0x2000'0000  0x26
 
 
 
@@ -146,16 +133,16 @@ command line/config:
     ------------------------------------------------
     Total:
 
-D:\kolya\year 4\semester 7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj: [1]
-    blinky.o                   240                 1
+C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj: [1]
+    blinky.o                   244                 1
     delay.o                     56
     keypad.o                   396       16
     lcd.o                      332
-    mathop.o                   140                10
-    parser.o                   116                24
+    mathop.o                   144                13
+    parser.o                   172                24
     startup_ewarm.o             30      620      512
     ------------------------------------------------
-    Total:                   1 310      636      547
+    Total:                   1 374      636      550
 
 dl7M_tln.a: [2]
     exit.o                       4
@@ -192,7 +179,7 @@ shb_l.a: [6]
     Gaps                         8        2
     Linker created                       16
 ----------------------------------------------------
-    Grand Total:             2 062      654      547
+    Grand Total:             2 126      654      550
 
 
 *******************************************************************************
@@ -201,48 +188,48 @@ shb_l.a: [6]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-.iar.init_table$$Base         0xa08          --   Gb  - Linker created -
-.iar.init_table$$Limit        0xa18          --   Gb  - Linker created -
-?main                         0xa45         Code  Gb  cmain.o [5]
-FaultISR                      0xa33    0x2  Code  Lc  startup_ewarm.o [1]
+.iar.init_table$$Base         0xa48          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xa58          --   Gb  - Linker created -
+?main                         0xa85         Code  Gb  cmain.o [5]
+FaultISR                      0xa73    0x2  Code  Lc  startup_ewarm.o [1]
 GPIODirModeSet                0x441   0x28  Code  Gb  gpio.o [3]
 GPIOPadConfigSet              0x469  0x102  Code  Gb  gpio.o [3]
 GPIOPinRead                   0x56b    0x8  Code  Gb  gpio.o [3]
 GPIOPinTypeGPIOInput          0x57f   0x14  Code  Gb  gpio.o [3]
 GPIOPinTypeGPIOOutput         0x593    0xa  Code  Gb  gpio.o [3]
 GPIOPinWrite                  0x573    0x8  Code  Gb  gpio.o [3]
-IntDefaultHandler             0xa35    0x2  Code  Lc  startup_ewarm.o [1]
-NmiSR                         0xa31    0x2  Code  Lc  startup_ewarm.o [1]
-Region$$Table$$Base           0xa08          --   Gb  - Linker created -
-Region$$Table$$Limit          0xa18          --   Gb  - Linker created -
-ResetISR                      0xa19   0x12  Code  Gb  startup_ewarm.o [1]
+IntDefaultHandler             0xa75    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                         0xa71    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0xa48          --   Gb  - Linker created -
+Region$$Table$$Limit          0xa58          --   Gb  - Linker created -
+ResetISR                      0xa59   0x12  Code  Gb  startup_ewarm.o [1]
 SysCtlPeripheralEnable        0x41b    0x8  Code  Gb  sysctl.o [3]
 SysCtlPeripheralReady         0x3f9    0x8  Code  Gb  sysctl.o [3]
-__cmain                       0xa45         Code  Gb  cmain.o [5]
-__exit                        0xa79   0x14  Code  Gb  exit.o [6]
-__iar_data_init3              0x9bd   0x28  Code  Gb  data_init.o [5]
-__iar_init_vfp                0x9e5         Code  Gb  fpinit_M.o [4]
-__iar_program_start           0xa37         Code  Gb  cstartup_M.o [5]
+__cmain                       0xa85         Code  Gb  cmain.o [5]
+__exit                        0xab9   0x14  Code  Gb  exit.o [6]
+__iar_data_init3              0x9fd   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp                0xa25         Code  Gb  fpinit_M.o [4]
+__iar_program_start           0xa77         Code  Gb  cstartup_M.o [5]
 __iar_unaligned_memcpy4
                               0x5f1         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_unaligned_memcpy8
                               0x5f1         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_zero_init3              0x5b7   0x3a  Code  Gb  zero_init3.o [5]
-__low_level_init              0xa63    0x4  Code  Gb  low_level_init.o [2]
+__low_level_init              0xaa3    0x4  Code  Gb  low_level_init.o [2]
 __vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
-_call_main                    0xa51         Code  Gb  cmain.o [5]
-_exit                         0xa6d         Code  Gb  cexit.o [5]
-_main                         0xa5f         Code  Gb  cmain.o [5]
-calculate_result              0x8fb   0x42  Code  Gb  mathop.o [1]
-clear_parser                  0x96d    0x8  Code  Gb  parser.o [1]
-clear_screen                  0x8a3   0x14  Code  Gb  blinky.o [1]
-current_operand         0x2000'0021    0x1  Data  Gb  mathop.o [1]
+_call_main                    0xa91         Code  Gb  cmain.o [5]
+_exit                         0xaad         Code  Gb  cexit.o [5]
+_main                         0xa9f         Code  Gb  cmain.o [5]
+calculate_result              0x901   0x42  Code  Gb  mathop.o [1]
+clear_parser                  0x975    0x8  Code  Gb  parser.o [1]
+clear_screen                  0x8a7   0x14  Code  Gb  blinky.o [1]
+current_operand         0x2000'0018    0x4  Data  Gb  mathop.o [1]
 delay_ms                      0x661   0x1e  Code  Gb  delay.o [1]
 delay_us                      0x647   0x1a  Code  Gb  delay.o [1]
-exit                          0xa67    0x4  Code  Gb  exit.o [2]
-get_current_operand           0x8ef    0x6  Code  Gb  mathop.o [1]
-get_number                    0x949    0x6  Code  Gb  parser.o [1]
-get_number_char               0x9a9    0x6  Code  Gb  parser.o [1]
+exit                          0xaa7    0x4  Code  Gb  exit.o [2]
+get_current_operand           0x8f3    0x8  Code  Gb  mathop.o [1]
+get_number                    0x951    0x6  Code  Gb  parser.o [1]
+get_number_char               0x9e9    0x6  Code  Gb  parser.o [1]
 keypad_get_key                0x2c9  0x112  Code  Gb  keypad.o [1]
 keypad_init                   0x2bd    0xc  Code  Gb  keypad.o [1]
 lcd_char_data                 0x7b5   0x18  Code  Gb  lcd.o [1]
@@ -250,36 +237,36 @@ lcd_command                   0x707   0x52  Code  Gb  lcd.o [1]
 lcd_data                      0x759   0x4e  Code  Gb  lcd.o [1]
 lcd_init                      0x6bf   0x48  Code  Gb  lcd.o [1]
 main                          0x7cd   0xa2  Code  Gb  blinky.o [1]
-number                  0x2000'0018    0x4  Data  Gb  parser.o [1]
+number                  0x2000'001c    0x4  Data  Gb  parser.o [1]
 number_char             0x2000'0000   0x10  Data  Gb  parser.o [1]
-number_to_char                0x975   0x34  Code  Gb  parser.o [1]
-number_to_char_counter  0x2000'001c    0x4  Data  Gb  parser.o [1]
+number_to_char                0x97d   0x6c  Code  Gb  parser.o [1]
+number_to_char_counter  0x2000'0020    0x4  Data  Gb  parser.o [1]
 operands                0x2000'0010    0x8  Data  Gb  mathop.o [1]
-operation               0x2000'0022    0x1  Data  Gb  mathop.o [1]
-parse                         0x955   0x18  Code  Gb  parser.o [1]
+operation               0x2000'0025    0x1  Data  Gb  mathop.o [1]
+parse                         0x95d   0x18  Code  Gb  parser.o [1]
 port_a_init                   0x681   0x20  Code  Gb  lcd.o [1]
 port_b_init                   0x6a1   0x1e  Code  Gb  lcd.o [1]
 port_c_init                   0x26d   0x28  Code  Gb  keypad.o [1]
 port_e_init                   0x295   0x28  Code  Gb  keypad.o [1]
-pui32Stack              0x2000'0024  0x200  Data  Lc  startup_ewarm.o [1]
-reset_current_operand         0x8dd   0x12  Code  Gb  mathop.o [1]
-result_handler                0x86f   0x34  Code  Gb  blinky.o [1]
-result_on_screen        0x2000'0020    0x1  Data  Gb  blinky.o [1]
-set_current_operand           0x8bd   0x20  Code  Gb  mathop.o [1]
-set_number                    0x94f    0x6  Code  Gb  parser.o [1]
-set_operation                 0x8f5    0x6  Code  Gb  mathop.o [1]
+pui32Stack              0x2000'0028  0x200  Data  Lc  startup_ewarm.o [1]
+reset_current_operand         0x8e1   0x12  Code  Gb  mathop.o [1]
+result_handler                0x86f   0x38  Code  Gb  blinky.o [1]
+result_on_screen        0x2000'0024    0x1  Data  Gb  blinky.o [1]
+set_current_operand           0x8c1   0x20  Code  Gb  mathop.o [1]
+set_number                    0x957    0x6  Code  Gb  parser.o [1]
+set_operation                 0x8fb    0x6  Code  Gb  mathop.o [1]
 
 
-[1] = D:\kolya\year 4\semester 7\Micro-Controllers\Project\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj
+[1] = C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\ewarm\Obj
 [2] = dl7M_tln.a
 [3] = driverlib.a
 [4] = m7M_tls.a
 [5] = rt7M_tl.a
 [6] = shb_l.a
 
-  2 062 bytes of readonly  code memory
+  2 126 bytes of readonly  code memory
     654 bytes of readonly  data memory
-    547 bytes of readwrite data memory
+    550 bytes of readwrite data memory
 
 Errors: none
 Warnings: none
