@@ -1,7 +1,6 @@
 #include "keypad.h"
 
-void port_c_init()
-{   
+void port_c_init(void (*handler_pin_4)(void)) {   
   SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);  
   while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOC)) {}
   
@@ -10,6 +9,12 @@ void port_c_init()
                       GPIO_PIN_7);
   
   GPIO_PORTC_PUR_R |= 0XFF; //enable pull-up resistors
+  
+  GPIOIntRegister(GPIO_PORTC_BASE, handler_pin_4);
+  GPIOIntTypeSet(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
+                 GPIO_PIN_7, GPIO_FALLING_EDGE);
+  GPIOIntEnable(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
+                 GPIO_PIN_7);
 }
 
 void port_e_init()
@@ -22,15 +27,18 @@ void port_e_init()
                       GPIO_PIN_7);
   
   GPIO_PORTE_ODR_R |= 0XFF;
+  GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
+              0);
 }
 
-void keypad_init()
+void keypad_init(void (*handler_pin_4)(void))
 {
-  port_c_init();
+  port_c_init(handler_pin_4);
   port_e_init();
 }
 
-unsigned char keypad_get_key()
+unsigned char keypad_get_key(int row, int col)
 {
   const unsigned char keymap[4][4] = {
       {'1' , '2' , '3' , '+'},
@@ -39,7 +47,7 @@ unsigned char keypad_get_key()
       {'=' , '0' , 'C' , '/'}
   };
   
-  int row,col;
+  /*int row,col;
   
   GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
@@ -98,12 +106,12 @@ unsigned char keypad_get_key()
           break;
       
       return 0;
-  }
+  }*/
   
   if (col == 0xE0) return keymap[row][0];
   if (col == 0xD0) return keymap[row][1];
   if (col == 0xB0) return keymap[row][2];
   if (col == 0x70) return keymap[row][3];
   
-  return 0;
+  //return 0;
 }
