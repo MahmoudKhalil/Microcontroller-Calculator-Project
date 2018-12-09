@@ -117,64 +117,19 @@ void clear_screen(void) {
 }
 
 void handler_pin_4(void) {
-  /*GPIOIntDisable(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | 
-               GPIO_PIN_7);*/
+  GPIOIntDisable(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | 
+               GPIO_PIN_7);
   GPIOIntClear(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | 
                GPIO_PIN_7);
   count_flag++;
-  int row, col;
   
   if(count_flag <= 1) {
-  delay_ms(100);
-    while(1)
-    {
-      row = 0;
-      //GPIO_PORTE_DATA_R = 0x0E;
-      GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
-                   GPIO_PIN_0, 0x0E);
-      delay_ms(2);
-      
-      col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
-             GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
-      if(col != 0xF0)
-          break;
-      
-      row = 1;
-      GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
-                   GPIO_PIN_0, 0x0D);
-      
-      delay_ms(2);
-      
-      col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
-             GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
-      if(col != 0xF0)
-          break;
-      
-      row = 2;
-      GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
-                   GPIO_PIN_0, 0x0B);
-      
-      delay_ms(2);
-      
-      col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
-             GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
-      if(col != 0xF0)
-          break;
-      
-      row = 3;
-      GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
-                   GPIO_PIN_0, 0x07);
-      delay_ms(2);
-      col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
-             GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
-      if(col != 0xF0)
-          break;
-      break;
+    char c = keypad_get_key();
+    if(c != 0) {
+      lcd_data(c);
     }
-    lcd_data(keypad_get_key(row, col));
-    delay_ms(100);
   }
   
-  /*GPIOIntEnable(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | 
-               GPIO_PIN_7);*/
+  GPIOIntEnable(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | 
+               GPIO_PIN_7);
 }

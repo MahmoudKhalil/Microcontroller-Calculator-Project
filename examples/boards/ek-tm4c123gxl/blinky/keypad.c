@@ -38,7 +38,7 @@ void keypad_init(void (*handler_pin_4)(void))
   port_e_init();
 }
 
-unsigned char keypad_get_key(int row, int col)
+unsigned char keypad_get_key()
 {
   const unsigned char keymap[4][4] = {
       {'1' , '2' , '3' , '+'},
@@ -47,9 +47,9 @@ unsigned char keypad_get_key(int row, int col)
       {'=' , '0' , 'C' , '/'}
   };
   
-  /*int row,col;
+  int row,col;
   
-  GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+  /*GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
              0); //enable all rows;
   
@@ -59,7 +59,7 @@ unsigned char keypad_get_key(int row, int col)
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
   
   if (col == 0xF0)
-      return 0;
+      return 0;*/
   
   while(1)
   {
@@ -67,7 +67,7 @@ unsigned char keypad_get_key(int row, int col)
       //GPIO_PORTE_DATA_R = 0x0E;
       GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
                    GPIO_PIN_0, 0x0E);
-      delay_ms(2);
+      delay_us(20);
       
       col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
@@ -78,7 +78,7 @@ unsigned char keypad_get_key(int row, int col)
       GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
                    GPIO_PIN_0, 0x0D);
       
-      delay_ms(2);
+      delay_us(20);
       
       col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
@@ -89,7 +89,7 @@ unsigned char keypad_get_key(int row, int col)
       GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
                    GPIO_PIN_0, 0x0B);
       
-      delay_ms(2);
+      delay_us(20);
       
       col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
@@ -99,14 +99,14 @@ unsigned char keypad_get_key(int row, int col)
       row = 3;
       GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 | 
                    GPIO_PIN_0, 0x07);
-      delay_ms(2);
+      delay_us(20);
       col = GPIOPinRead(GPIO_PORTC_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
              GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7) & 0xF0;
       if(col != 0xF0)
           break;
       
       return 0;
-  }*/
+  }
   
   if (col == 0xE0) return keymap[row][0];
   if (col == 0xD0) return keymap[row][1];

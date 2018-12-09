@@ -11,6 +11,6 @@
 #include "tm4c123gh6pm.h"
 
 void keypad_init(void (*handler_pin_4)(void));
-unsigned char keypad_get_key(int row, int col);
+unsigned char keypad_get_key();
 
 #endif
