@@ -1,6 +1,6 @@
 #include "parser.h"
 
-int number = 0;
+int number = INT_MIN;
 unsigned char number_char[16] = {0};
 int number_to_char_counter = 0;
 
@@ -11,12 +11,15 @@ void set_number(int value) {
    number= value ;
 }
 void parse(char c) {
+  if(number == INT_MIN) {
+    number = 0;
+  }
   int digit = c - '0';
   number = (number * 10) + digit;
 }
 
 void clear_parser(void) {
-  number = 0;
+  number = INT_MIN;
 }
 
 unsigned char* number_to_char(int input) {

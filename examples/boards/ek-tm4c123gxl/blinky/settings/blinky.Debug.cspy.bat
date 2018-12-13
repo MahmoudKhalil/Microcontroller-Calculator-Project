@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.general.xcl" --backend -f "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.general.xcl" --backend -f "C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\common\bin\cspybat" -f "C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\settings\blinky.Debug.driver.xcl" 
 
 @echo off 
 :end

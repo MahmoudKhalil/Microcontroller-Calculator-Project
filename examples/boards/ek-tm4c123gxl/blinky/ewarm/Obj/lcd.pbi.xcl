@@ -1,17 +1,21 @@
-"C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\lcd.c"
+"C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\lcd.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky
+C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky
 -I
 C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project
+-I
+C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\inc\c
 -I
 C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project
+-I
+C:\Users\moaz\Documents\GitHub\Microcontroller-Calculator-Project
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
