@@ -12,5 +12,6 @@
 
 void keypad_init(void (*handler_pin_4)(void));
 unsigned char keypad_get_key();
+void GPIO_PORTF_Handler(void);
 
 #endif
