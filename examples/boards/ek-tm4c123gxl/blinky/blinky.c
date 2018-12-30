@@ -3,16 +3,22 @@
 #include "parser.h"
 #include "mathop.h"
 void clear_screen(void);
+void KeypadKeyHandler(void);
 void  result_handler(void);
 bool result_on_screen= false;
+short IsKeyPressed = 0;
 int main()
 {
   lcd_init();
-  keypad_init();
+  KeypadInit(KeypadKeyHandler);
   
   while(1)
     {
-      char key = keypad_get_key();
+      if(IsKeyPressed == 0) {
+            SysCtlSleep();
+        }
+      else{
+      char key = GetKeyPressed();
       if (key != 0) {
       if(key == '+' || key == '-' || key == '*'|| key == '/') {
         if (get_current_operand() == 1){
@@ -48,6 +54,7 @@ int main()
 
       } 
          }
+      }
    /*   if(key == '=') {
         unsigned char *pew = number_to_char(get_number());
         lcd_char_data(pew, get_number_char());
@@ -85,4 +92,9 @@ void clear_screen(void) {
   lcd_command(0x01);
    result_on_screen = false;
    clear_parser();
+}
+void KeypadKeyHandler(void) {
+    GPIOIntClear(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
+                      GPIO_PIN_7);
+    IsKeyPressed = 1;
 }

@@ -10,7 +10,9 @@
 #include "delay.h"
 #include "tm4c123gh6pm.h"
 
-void keypad_init();
-unsigned char keypad_get_key();
+void KeypadInit(void (*KeypadKeyHandler)(void));
+unsigned char GetKeyPressed(void);
+void PortCInit(void (*KeypadKeyHandler)(void)) ;
+void PortEInit(void);
 
 #endif
