@@ -1,9 +1,14 @@
-#ifndef DELAY_H
-#define DELAY_H
+/*
+ * delay.h
+ *
+ *  Created on: Dec 28, 2018
+ *      Author: mahmoud
+ */
 
-#include <stdint.h>
+#ifndef DELAY_H_
+#define DELAY_H_
 
-void delay_us(unsigned int delay);
-void delay_ms(unsigned int delay);
+void DelayMs(unsigned int delay);
+void DelayUs(unsigned int delay);
 
-#endif
+#endif /* DELAY_H_ */

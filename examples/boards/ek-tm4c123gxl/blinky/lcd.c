@@ -1,83 +1,83 @@
+/*
+ * lcd.c
+ *
+ *  Created on: Dec 28, 2018
+ *      Author: mahmoud
+ */
+
 #include "lcd.h"
+#include "delay.h"
 
-void port_a_init(void) {
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);  
-  while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOA)) {}
-  
-  GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
+void LCDInit(void) {
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOA)) {}
+
+    GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                       GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
                       GPIO_PIN_7);
-}
 
-void port_b_init(void) {
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);  
-  while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOB)) {}
-  
-  GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOB)) {}
+
+    GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                       GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
                       GPIO_PIN_7);
+
+    LCDCommand(0x30);
+    DelayMs(10);
+    LCDCommand(0x38);
+    DelayMs(200);
+    LCDCommand(0x06);
+    DelayMs(200);
+    LCDCommand(0x01);
+    DelayMs(200);
+    LCDCommand(0x0F);
+    DelayMs(200);
 }
 
-void lcd_init(void) {
-  port_a_init();
-  port_b_init();
-  
-  lcd_command(0x30);
-  delay_ms(10);
-  
-  lcd_command(0x38);
-  delay_ms(200);
-  lcd_command(0x06);
-  delay_ms(200);
-  lcd_command(0x01);
-  delay_ms(200);
-  lcd_command(0x0F);
-  delay_ms(200);
-  
-}
-
-void lcd_command(unsigned char command) {
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+void LCDCommand(unsigned char c) {
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
                0);
-  
-  GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+
+    GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
-               command);
-  
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, GPIO_PIN_7);
-  delay_us(10);
-  
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+               c);
+
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, GPIO_PIN_7);
+    DelayUs(10);
+
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
                0);
-  
-  if(command < 4) {
-    delay_ms(2);
-  } else {
-    delay_us(40);
-  }
+
+    if(c < 4) {
+      DelayUs(2);
+    } else {
+      DelayUs(40);
+    }
 }
 
-void lcd_data(unsigned char data) {
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+void LCDData(unsigned char c) {
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7, 0);
-  
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, GPIO_PIN_5);
-  
-  GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, GPIO_PIN_5);
+
+    GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7,
-               data);
-  
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, GPIO_PIN_7);
-  delay_ms(1);
-  GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | 
+               c);
+
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_7, GPIO_PIN_7);
+    DelayMs(1);
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 |
                GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7, 0);
-  delay_ms(40);
+    DelayMs(40);
 }
 
-void lcd_char_data(unsigned char *data, int length) {
-  for(int i = length - 1; i >= 0; i--) {
-    lcd_data(data[i]);
-  }
+void LCDCharData(unsigned char *data, int length) {
+    int i = length - 1;
+    for(; i >= 0; i--) {
+        LCDData(data[i]);
+    }
 }

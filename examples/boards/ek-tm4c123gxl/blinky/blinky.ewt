@@ -1194,9 +1194,6 @@
     <group>
         <name>Source</name>
         <file>
-            <name>$PROJ_DIR$\blinky.c</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\delay.c</name>
         </file>
         <file>
@@ -1230,4 +1227,25 @@
             <name>$PROJ_DIR$\startup_ewarm.c</name>
         </file>
     </group>
+    <file>
+        <name>$PROJ_DIR$\calculator.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\calculator.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\EEPROM_Module.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\EEPROM_Module.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\rtc.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\rtc.h</name>
+    </file>
 </project>

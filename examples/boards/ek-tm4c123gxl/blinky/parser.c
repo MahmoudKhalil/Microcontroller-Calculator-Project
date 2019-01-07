@@ -3,6 +3,7 @@
 int number = INT_MIN;
 unsigned char number_char[16] = {0};
 int number_to_char_counter = 0;
+unsigned char output[2] = {0};
 
 int get_number(void) {
   return number;
@@ -43,8 +44,21 @@ unsigned char* number_to_char(int input) {
     number_char[number_to_char_counter] = '-';
     number_to_char_counter++;
   }
-  
+
   return number_char;
+}
+
+unsigned char* ParseRTC(int input) {
+    if(input < 10) {
+        output[1] = '0';
+        output[0] = input + '0';
+    } else {
+        output[0] = (input % 10) + '0';
+        input  /= 10;
+        output[1] = (input % 10) + '0';
+    }
+
+    return output;
 }
 
 int get_number_char(void) {

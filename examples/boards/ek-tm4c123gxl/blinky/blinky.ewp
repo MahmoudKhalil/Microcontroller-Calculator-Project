@@ -765,7 +765,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>lnk0t.icf</state>
+                    <state>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C123GH6.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -825,7 +825,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state></state>
+                    <state>__iar_program_start</state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -998,7 +998,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>blinky_import_lib.o</state>
                 </option>
             </data>
         </settings>
@@ -1038,9 +1038,6 @@
     <group>
         <name>Source</name>
         <file>
-            <name>$PROJ_DIR$\blinky.c</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\delay.c</name>
         </file>
         <file>
@@ -1074,4 +1071,25 @@
             <name>$PROJ_DIR$\startup_ewarm.c</name>
         </file>
     </group>
+    <file>
+        <name>$PROJ_DIR$\calculator.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\calculator.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\EEPROM_Module.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\EEPROM_Module.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\main.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\rtc.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\rtc.h</name>
+    </file>
 </project>

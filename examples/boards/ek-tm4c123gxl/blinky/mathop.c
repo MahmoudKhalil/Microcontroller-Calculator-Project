@@ -34,7 +34,7 @@ void reset_current_operand( void){
 
 }
 uint8_t get_current_operand(){
-  
+
  return current_operand ;
 }
 
@@ -42,11 +42,11 @@ void set_operation(char value){
   operation = value;
 }
 int calculate_result(void){
-  
+
   if(operands[1] == INT_MIN) {
     return INT_MIN;
   }
-  
+
   switch (operation){
   case '+':
       if(operands[0] == INT_MIN) {
@@ -65,7 +65,7 @@ int calculate_result(void){
         return INT_MIN;
       }
       return operands[0]*operands[1];
-      break;    
+      break;
   case '/':
       if(operands[0] == INT_MIN) {
         return INT_MIN;
@@ -76,8 +76,7 @@ int calculate_result(void){
       }
       return operands[0]/operands[1];
       break;
-   
-  }
-  
-}
 
+  }
+
+}

@@ -32,11 +32,6 @@
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-        <Category>_ 0</Category>
-    </LogFile>
     <CallStackLog>
         <Enabled>0</Enabled>
     </CallStackLog>
@@ -50,6 +45,11 @@
         <Bp0>_ "STD_CODE" "{$PROJ_DIR$\blinky.c}.0.1" 1 0 0 0 "" 0 ""</Bp0>
         <Count>1</Count>
     </Breakpoints>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
     <Aliases>
         <A0>_ "C:\Users\Mahmoud\Documents\lesson x - lec7 - Step 4 - TivaWare_C_Series-2.1.4.178\examples\boards\ek-tm4c123gxl\blinky\lcd.c" "C:\Users\Mahmoud\Documents\Microcontroller-Calculator-Project\examples\boards\ek-tm4c123gxl\blinky\lcd.c"</A0>
         <Count>1</Count>
